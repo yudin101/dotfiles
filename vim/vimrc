@@ -1,0 +1,34 @@
+let mapleader = " "
+
+set nocompatible
+
+set number
+set relativenumber
+
+set expandtab
+set autoindent
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+
+colorscheme blood-moon
+set notermguicolors
+
+set nowrap
+syntax on
+
+nnoremap <Leader>bd :bdelete<CR>
+nnoremap <Leader>bn :bnext<CR>
+nnoremap <Leader>bp :bprevious<CR>
+
+" Center the code when scrolling half page down
+nnoremap <C-u> <C-u>zz
+
+" Center code when scrolling half page up
+nnoremap <C-d> <C-d>zz
+
+" Copy to system clipboard
+vnoremap <Leader>y :w !xsel --clipboard --input<CR><CR>
+
+" Paste from system clipboard
+nnoremap <Leader>p :r !xsel --clipboard --output<CR>

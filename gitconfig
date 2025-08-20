@@ -1,0 +1,12 @@
+[user]
+	name = yudin101
+	email = contact@yudin101.com.np
+	signingkey = /home/device/.ssh/id_ed25519.pub
+[init]
+	defaultBranch = main
+[core]
+	editor = vim
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true

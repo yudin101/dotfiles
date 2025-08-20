@@ -1,0 +1,22 @@
+[general]
+import = [
+  "~/.config/alacritty/themes/blood-moon.toml"
+]
+
+[window]
+decorations = "None"
+startup_mode = "Fullscreen"
+padding = { x = 3, y = 0}
+
+[font]
+#size = 17.4 # big ass fonts
+size = 9.0
+normal = { family = "FiraCodeNerdFont", style = "Regular" }
+bold = { family = "FiraCodeNerdFont", style = "Bold" }
+italic = { family = "FiraCodeNerdFont", style = "Italics" }
+
+[selection]
+save_to_clipboard = true
+
+[mouse]
+hide_when_typing = true
