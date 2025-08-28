@@ -42,7 +42,7 @@ get_battery() {
     if [ "$discharging" == "" ]; then
         battery_color="^fg(#8cb11e)"
     fi
-    battery="^bg()^fg()Battery: $battery_color$percent"
+    battery="^bg()^fg()$battery_color$percent"
     echo $battery
 }
 

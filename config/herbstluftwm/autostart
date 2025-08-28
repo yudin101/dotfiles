@@ -8,8 +8,8 @@ hc() {
 
 hc emit_hook reload
 
-# xsetroot -solid '#5e3a8e'
-feh --bg-fill ~/pics/wallpapers/debian_mountain.png
+xsetroot -solid '#000'
+# feh --bg-fill ~/pics/wallpapers/debian_mountain.png
 
 # remove all existing keybindings
 hc keyunbind --all
