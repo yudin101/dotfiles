@@ -120,13 +120,19 @@ if [ -z "$TMUX" ]; then
 		tmux new-session -n nvim -d
 		tmux new-window -n server
 		tmux new-window -n psql
+		tmux new-window -n mpg123
 		tmux new-window
 		tmux select-window -t 0:nvim
-    tmux attach -t 0
+		tmux attach -t 0
 	fi
 fi
 
 alias la="ls -a"
+alias ll="ls -l"
 
 # Adding .local/bin to path
 export PATH="$HOME/.local/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
