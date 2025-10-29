@@ -13,6 +13,7 @@ vim.cmd("set nowrap")
 vim.cmd("set cursorline")
 
 vim.cmd("colorscheme gruvbox")
+vim.cmd("set termguicolors")
 vim.cmd("set guicursor=n-v-c-i:block")
 
 vim.cmd("set clipboard=unnamedplus")
