@@ -3,4 +3,5 @@ return {
 	priority = 1000,
 	config = true,
 	opts = ...,
+  enabled = false,
 }

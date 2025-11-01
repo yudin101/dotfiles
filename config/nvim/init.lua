@@ -12,7 +12,7 @@ vim.cmd("set softtabstop=2")
 vim.cmd("set nowrap")
 vim.cmd("set cursorline")
 
-vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme tokyonight-night")
 vim.cmd("set termguicolors")
 vim.cmd("set guicursor=n-v-c-i:block")
 
@@ -28,3 +28,5 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz<CR>", { noremap = true })
 
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {})
+
+vim.keymap.set("n", "<A-w>", "<C-w>", { noremap = true, silent = true }) -- Swap Ctrl + W with Alt + W

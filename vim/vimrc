@@ -32,3 +32,6 @@ vnoremap <Leader>y :w !xsel --clipboard --input<CR><CR>
 
 " Paste from system clipboard
 nnoremap <Leader>p :r !xsel --clipboard --output<CR>
+
+" Swap Ctrl + W with Alt + W
+nnoremap <Esc>w <C-w>
