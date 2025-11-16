@@ -25,6 +25,7 @@ hc keybind $Mod-Shift-c close
 
 # Open apps
 hc keybind $Mod-Return spawn "${TERMINAL:-alacritty}" # use your $TERMINAL with alacritty as fallback
+hc keybind $Mod-t spawn thorium-browser
 hc keybind $Mod-d spawn dmenu_run
 
 # Take screenshot
