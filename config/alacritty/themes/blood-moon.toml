@@ -3,6 +3,9 @@
 background = '0x10100E'
 foreground = '0xC6C6C4'
 
+#background = '0xFFFFFF'
+#foreground = '0x000000'
+
 [colors.normal]
 black = '0x10100E'
 red = '0xC40233'
