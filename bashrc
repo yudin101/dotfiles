@@ -133,8 +133,20 @@ alias ll="ls -l"
 # Adding .local/bin to path
 export PATH="$HOME/.local/bin:$PATH"
 
+# Define NVM directory
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+# Lazy load function
+nvm_lazy_load() {
+  unset -f nvm node npm npx
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+}
+
+# Create "placeholders" that trigger the real NVM load
+nvm()  { nvm_lazy_load; nvm "$@"; }
+node() { nvm_lazy_load; node "$@"; }
+npm()  { nvm_lazy_load; npm "$@"; }
+npx()  { nvm_lazy_load; npx "$@"; }
 
 export DISPLAY=:0
