@@ -1,16 +1,29 @@
 #!/bin/bash
+set -e
+
 DOTFILES=$HOME/dotfiles
 
-# home configs
-ln -sf $DOTFILES/bashrc ~/.bashrc
-ln -sf $DOTFILES/gitconfig ~/.gitconfig
-ln -sf $DOTFILES/tmux.conf ~/.tmux.conf
-ln -sf $DOTFILES/xinitrc ~/.xinitrc
+# Clear previous configs if they exist
+mkdir -p "$HOME/.config"
+
+rm -rf \
+  "$HOME/.config/alacritty" \
+  "$HOME/.config/herbstluftwm" \
+  "$HOME/.config/nvim" \
+  "$HOME/.config/mpv" \
+  "$HOME/.vim" \
+
+# Home configs
+ln -sf $DOTFILES/bashrc $HOME/.bashrc
+ln -sf $DOTFILES/gitconfig $HOME/.gitconfig
+ln -sf $DOTFILES/tmux.conf $HOME/.tmux.conf
+ln -sf $DOTFILES/xinitrc $HOME/.xinitrc
 
 # XDG configs
-ln -sf $DOTFILES/config/alacritty ~/.config/alacritty
-ln -sf $DOTFILES/config/herbstluftwm ~/.config/herbstluftwm
-ln -sf $DOTFILES/config/nvim ~/.config/nvim
+ln -sf $DOTFILES/config/alacritty $HOME/.config/alacritty
+ln -sf $DOTFILES/config/herbstluftwm $HOME/.config/herbstluftwm
+ln -sf $DOTFILES/config/nvim $HOME/.config/nvim
+ln -sf $DOTFILES/config/mpv $HOME/.config/mpv
 
 # Vim
-ln -sf $DOTFILES/vim ~/.vim
+ln -sf $DOTFILES/vim $HOME/.vim
