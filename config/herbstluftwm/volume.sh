@@ -11,7 +11,7 @@ case $1 in
         ;;
     mute)
         # amixer -q set Master toggle
-        wpctl set-mute 49 toggle
+        wpctl set-mute 54 toggle
         herbstclient emit_hook volume_toggle
         ;;
 esac
