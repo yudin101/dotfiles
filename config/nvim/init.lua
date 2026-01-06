@@ -1,3 +1,5 @@
+vim.o.winborder = "rounded"
+
 require("config.lazy")
 
 vim.cmd("set number")
