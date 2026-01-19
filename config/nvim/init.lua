@@ -14,7 +14,7 @@ vim.cmd("set softtabstop=2")
 vim.cmd("set nowrap")
 vim.cmd("set cursorline")
 
-vim.cmd("colorscheme tokyonight-night")
+vim.cmd("colorscheme teide-darker")
 vim.cmd("set termguicolors")
 vim.cmd("set guicursor=n-v-c-i:block")
 
