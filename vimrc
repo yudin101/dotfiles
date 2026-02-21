@@ -11,8 +11,8 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 
-colorscheme blood-moon
-set termguicolors
+colorscheme default
+set notermguicolors
 
 set nowrap
 syntax on
