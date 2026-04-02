@@ -2,23 +2,23 @@ vim.o.winborder = "rounded"
 
 require("config.lazy")
 
-vim.cmd("set number")
-vim.cmd("set relativenumber")
+vim.opt.number = true
+vim.opt.relativenumber = true
 
-vim.cmd("set autoindent")
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set shiftwidth=2")
-vim.cmd("set softtabstop=2")
+vim.opt.autoindent = true
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
 
-vim.cmd("set nowrap")
-vim.cmd("set cursorline")
+vim.opt.wrap = false
+vim.opt.cursorline = true
 
-vim.cmd("colorscheme teide-darker")
-vim.cmd("set termguicolors")
-vim.cmd("set guicursor=n-v-c-i:block")
+vim.cmd.colorscheme("teide-darker")
+vim.opt.termguicolors = true
+vim.opt.guicursor = "n-v-c-i:block"
 
-vim.cmd("set clipboard=unnamedplus")
+vim.opt.clipboard = "unnamedplus"
 
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { noremap = true, buffer = bufnr })
 vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { noremap = true })
