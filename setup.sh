@@ -14,12 +14,14 @@ rm -rf \
   "$HOME/.config/pipewire" \
   "$HOME/.vimrc" \
   "$HOME/.bashrc" \
+  "$HOME/.bash_aliases" \
   "$HOME/.gitconfig" \
   "$HOME/.tmux.conf" \
   "$HOME/.xinitrc" \
 
 # Home configs
 ln -sf $DOTFILES/bashrc $HOME/.bashrc
+ln -sf $DOTFILES/bash_aliases $HOME/.bash_aliases
 ln -sf $DOTFILES/gitconfig $HOME/.gitconfig
 ln -sf $DOTFILES/tmux.conf $HOME/.tmux.conf
 ln -sf $DOTFILES/xinitrc $HOME/.xinitrc
