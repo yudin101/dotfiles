@@ -129,6 +129,7 @@ fi
 
 alias la="ls -a"
 alias ll="ls -l"
+alias repipe="systemctl restart --user pipewire pipewire-pulse wireplumber"
 
 # Adding .local/bin to path
 export PATH="$HOME/.local/bin:$PATH"
