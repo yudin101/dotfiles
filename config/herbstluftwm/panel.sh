@@ -30,6 +30,7 @@ font="-*-fixed-medium-*-*-*-12-*-*-*-*-*-*-*"
 bgcolor=#000000
 selbg=$(hc get window_border_active_color|sed 's,^\(\#[0-9a-f]\{6\}\)[0-9a-f]\{2\}$,\1,')
 selfg='#d0d0d0'
+separator="^bg()^fg($selbg)|"
 
 # Function to find the battery percentage
 get_battery() {
@@ -98,7 +99,8 @@ hc pad $monitor $panel_height
     while true ; do
         # output is checked once a second, but a "date" event is only
         # generated if the output changed compared to the previous run.
-        printf 'date\t^fg(#efefef)%(%H:%M)T^fg(#909090), %(%Y-%m)T-^fg(#efefef)%(%d)T\n'
+        # printf "date\t^fg(#efefef)%(%H:%M)T$separator^fg(#909090) %(%Y-%m)T-^fg(#efefef)%(%d)T\n" # To include year in the date
+        printf "date\t^fg(#efefef)%(%H:%M)T$separator^fg(#909090) %(%m)T-^fg(#efefef)%(%d)T\n"
         sleep 1 || break
     done > >(uniq_linebuffered) &
     childpid=$!
@@ -115,7 +117,6 @@ hc pad $monitor $panel_height
         # This part prints dzen data based on the _previous_ data handling run,
         # and then waits for the next event to happen.
 
-        separator="^bg()^fg($selbg)|"
         # draw tags
         for i in "${tags[@]}" ; do
             case ${i:0:1} in
