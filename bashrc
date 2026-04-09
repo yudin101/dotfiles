@@ -137,10 +137,10 @@ if [ -z "$TMUX" ]; then
 		tmux attach
 	else
 		tmux new-session -s home -n nvim -d
-		tmux new-window -s home -n server
-		tmux new-window -s home -n psql
-		tmux new-window -s home -n mpg123
-		tmux new-window -s home
+		tmux new-window -t home -n server
+		tmux new-window -t home -n psql
+		tmux new-window -t home -n mpg123
+		tmux new-window -t home
 		tmux select-window -t home:nvim
 		tmux attach -t home
 	fi
