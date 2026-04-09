@@ -110,6 +110,37 @@ if ! shopt -oq posix; then
 		. /etc/bash_completion
 	fi
 fi
+
+if [ "$CODESPACES" = "true" ]; then
+	export TERM=xterm-256color
+
+	if [ ! -f /opt/nvim/bin/nvim ]; then
+		curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+		tar -xzf nvim-linux-x86_64.tar.gz
+		sudo mv nvim-linux-x86_64 /opt/nvim
+		rm nvim-linux-x86_64.tar.gz
+	fi
+	export PATH="$PATH:/opt/nvim/bin"
+
+  if ! command -v tmux &>/dev/null; then
+      sudo apt-get install -y tmux
+  fi
+
+	if [ -z "$TMUX" ]; then
+		if tmux ls >/dev/null 2>&1; then
+			tmux attach
+		else
+			tmux new-session -n nvim -d
+			tmux new-window -n server
+			tmux new-window -n psql
+			tmux new-window
+			tmux select-window -t 0:nvim
+			tmux attach -t 0
+		fi
+	fi
+	return
+fi
+
 . "$HOME/.cargo/env"
 
 # check if a tmux session exists
@@ -135,15 +166,27 @@ export NVM_DIR="$HOME/.nvm"
 
 # Lazy load function
 nvm_lazy_load() {
-  unset -f nvm node npm npx
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+	unset -f nvm node npm npx
+	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 }
 
 # Create "placeholders" that trigger the real NVM load
-nvm()  { nvm_lazy_load; nvm "$@"; }
-node() { nvm_lazy_load; node "$@"; }
-npm()  { nvm_lazy_load; npm "$@"; }
-npx()  { nvm_lazy_load; npx "$@"; }
+nvm() {
+	nvm_lazy_load
+	nvm "$@"
+}
+node() {
+	nvm_lazy_load
+	node "$@"
+}
+npm() {
+	nvm_lazy_load
+	npm "$@"
+}
+npx() {
+	nvm_lazy_load
+	npx "$@"
+}
 
 export DISPLAY=:0
