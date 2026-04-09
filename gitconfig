@@ -1,7 +1,7 @@
 [user]
 	name = yudin101
 	email = contact@yudin101.com.np
-	signingkey = /home/device/.ssh/id_ed25519.pub
+	signingkey = ~/.ssh/id_ed25519.pub
 [init]
 	defaultBranch = main
 [core]
@@ -11,4 +11,4 @@
 [commit]
 	gpgsign = true
 [gpg "ssh"]
-	allowedSignersFile = /home/device/.ssh/allowed_signers
+	allowedSignersFile = ~/.ssh/allowed_signers
