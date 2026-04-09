@@ -112,6 +112,7 @@ if ! shopt -oq posix; then
 fi
 
 if [ "$CODESPACES" = "true" ]; then
+	export PATH="$PATH:/opt/nvim/bin"
 	export TERM=xterm-256color
 
 	if [ -z "$TMUX" ]; then
