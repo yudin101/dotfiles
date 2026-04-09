@@ -140,7 +140,7 @@ if [ -z "$TMUX" ]; then
 		tmux new-window -s home -n server
 		tmux new-window -s home -n psql
 		tmux new-window -s home -n mpg123
-		tmux new-window -s home 
+		tmux new-window -s home
 		tmux select-window -t home:nvim
 		tmux attach -t home
 	fi
@@ -149,32 +149,34 @@ fi
 # Adding .local/bin to path
 export PATH="$HOME/.local/bin:$PATH"
 
-# Define NVM directory
-export NVM_DIR="$HOME/.nvm"
+if [ ! "$CODESPACES" = "true" ]; then
+	# Define NVM directory
+	export NVM_DIR="$HOME/.nvm"
 
-# Lazy load function
-nvm_lazy_load() {
-	unset -f nvm node npm npx
-	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-}
+	# Lazy load function
+	nvm_lazy_load() {
+		unset -f nvm node npm npx
+		[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+		[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+	}
 
-# Create "placeholders" that trigger the real NVM load
-nvm() {
-	nvm_lazy_load
-	nvm "$@"
-}
-node() {
-	nvm_lazy_load
-	node "$@"
-}
-npm() {
-	nvm_lazy_load
-	npm "$@"
-}
-npx() {
-	nvm_lazy_load
-	npx "$@"
-}
+	# Create "placeholders" that trigger the real NVM load
+	nvm() {
+		nvm_lazy_load
+		nvm "$@"
+	}
+	node() {
+		nvm_lazy_load
+		node "$@"
+	}
+	npm() {
+		nvm_lazy_load
+		npm "$@"
+	}
+	npx() {
+		nvm_lazy_load
+		npx "$@"
+	}
 
-export DISPLAY=:0
+	export DISPLAY=:0
+fi
