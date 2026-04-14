@@ -3,7 +3,7 @@ return {
 	tag = "0.1.8",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-    "nvim-tree/nvim-web-devicons",
+		"nvim-tree/nvim-web-devicons",
 	},
 	config = function()
 		local builtin = require("telescope.builtin")
@@ -15,8 +15,8 @@ return {
 			builtin.buffers({ previewer = false })
 		end, {})
 
-		vim.keymap.set("n", "<C-k>", function ()
-      builtin.live_grep({previewer = false})
+		vim.keymap.set("n", "<C-k>", function()
+			builtin.live_grep({ previewer = false })
 		end, {})
 
 		require("telescope").setup({
