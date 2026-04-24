@@ -140,7 +140,7 @@ if [ -z "$TMUX" ]; then
 		tmux new-session -s home -n nvim -d
 		tmux new-window -t home -n server
 		tmux new-window -t home -n psql
-		tmux new-window -t home -n mpg123
+		tmux new-window -t home -n mpg123 -c "$HOME/music"
 		tmux new-window -t home
 		tmux select-window -t home:nvim
 		tmux attach -t home
