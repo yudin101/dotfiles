@@ -4,15 +4,15 @@ return {
 	priority = 1000,
 	opts = {
 		style = "darker",
-		on_colors = function(colors)
-			colors.bg = "#000000"
-		end,
+		-- on_colors = function(colors)
+		-- 	colors.bg = "#000000"
+		-- end,
 		on_highlights = function(highlights, colors)
-			highlights.TelescopeNormal = { bg = colors.bg }
-			highlights.TelescopePromptNormal = { bg = colors.bg }
-			highlights.TelescopePromptBorder = { bg = colors.bg, fg = colors.fg_gutter }
-			highlights.TelescopeResultsNormal = { bg = colors.bg }
-			highlights.TelescopeResultsBorder = { bg = colors.bg, fg = colors.fg_gutter }
+			highlights.TelescopeNormal = { bg = none }
+			highlights.TelescopePromptNormal = { bg = none }
+			highlights.TelescopePromptBorder = { bg = none, fg = none }
+			highlights.TelescopeResultsNormal = { bg = none }
+			highlights.TelescopeResultsBorder = { bg = none }
 		end,
 	},
 }

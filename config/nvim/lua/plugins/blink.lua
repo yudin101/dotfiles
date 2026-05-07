@@ -20,8 +20,11 @@ return {
 		},
 
 		completion = {
-			documentation = { auto_show = true, window = { border = "rounded" } },
-			menu = { border = "rounded" },
+			documentation = {
+				auto_show = true,
+				window = { border = "rounded", winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder" },
+			},
+			menu = { border = "rounded", winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder" },
 		},
 
 		snippets = { preset = "default" },
