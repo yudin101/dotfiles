@@ -1,4 +1,4 @@
 #!/bin/sh
 
-picom --daemon &
+# picom --daemon &
 exec herbstluftwm

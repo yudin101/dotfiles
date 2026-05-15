@@ -8,8 +8,8 @@ hc() {
 
 hc emit_hook reload
 
-# xsetroot -solid '#000'
-feh --bg-fill --no-fehbg ~/dwnloads/daredevil-born-3840x2160-25420.jpg
+xsetroot -solid '#000'
+# feh --bg-fill --no-fehbg ~/dwnloads/daredevil-born-3840x2160-25420.jpg
 
 # remove all existing keybindings
 hc keyunbind --all
