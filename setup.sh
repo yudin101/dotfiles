@@ -50,7 +50,7 @@ ln -sf $DOTFILES/tmux.conf $HOME/.tmux.conf
 ln -sf $DOTFILES/vimrc $HOME/.vimrc
 ln -sf $DOTFILES/config/nvim $HOME/.config/nvim
 
-if [ ! "$CODESPACES" = "true" ]; then
+if [[ ! "$CODESPACES" = "true" || ! "$AZURE" = "true" ]]; then
   ln -sf $DOTFILES/xinitrc $HOME/.xinitrc
   ln -sf $DOTFILES/config/alacritty $HOME/.config/alacritty
   ln -sf $DOTFILES/config/herbstluftwm $HOME/.config/herbstluftwm
