@@ -19,6 +19,12 @@ return {
 			},
 		})
 
+		vim.lsp.config("ts_ls", {
+			on_attach = function(client)
+				client.server_capabilities.semanticTokensProvider = nil
+			end,
+		})
+
 		vim.lsp.enable({ "ts_ls", "cssls", "html", "clangd", "pyright" })
 	end,
 }
