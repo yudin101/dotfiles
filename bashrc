@@ -114,6 +114,7 @@ fi
 # Adding .local/bin to path
 export PATH="$HOME/.local/bin:$PATH"
 
+# Set SESSION variable
 if [ "$CODESPACES" = "true" ]; then
   export PATH="$PATH:/opt/nvim/bin"
   SESSION="cdsp"
@@ -145,6 +146,45 @@ if [ ! "$SESSION" = "home" ]; then
 fi
 
 . "$HOME/.cargo/env"
+
+# ---------------------------------------------------------------------------
+# Load Git prompt support if available
+if [ -f /usr/lib/git-core/git-sh-prompt ]; then
+    . /usr/lib/git-core/git-sh-prompt
+elif [ -f /usr/share/git-core/git-sh-prompt ]; then
+    . /usr/share/git-core/git-sh-prompt
+fi
+
+# Helper function to dynamically color the Git prompt based on status
+get_git_prompt_color() {
+    # Capture the raw git branch and status symbols
+    local git_info
+    git_info=$(__git_ps1 "%s" 2>/dev/null)
+    
+    # If not in a git repo, return empty
+    if [ -z "$git_info" ]; then
+        return
+    fi
+
+    # Check for symbols and apply colors:
+    # *+ = Both (Dim Yellow) | + = Staged (Dim Cyan) | * = Unstaged (Dim Red) | Clean = (Dim Green)
+    if [[ "$git_info" == *\** && "$git_info" == *+* ]]; then
+        echo -e " \e[0;33m($git_info)\e[0m" # Dim Yellow
+    elif [[ "$git_info" == *+* ]]; then
+        echo -e " \e[0;36m($git_info)\e[0m" # Dim Cyan
+    elif [[ "$git_info" == *\** ]]; then
+        echo -e " \e[0;31m($git_info)\e[0m" # Dim Red
+    else
+        echo -e " \e[0;32m($git_info)\e[0m" # Dim Green
+    fi
+}
+
+# Enable showing dirty state (optional: shows * for unstaged, + for staged changes)
+export GIT_PS1_SHOWDIRTYSTATE=1
+
+# Update PS1 to include the branch name in green
+export PS1='\[\e[1;32m\]\u@\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]$(get_git_prompt_color)\$ '
+# ---------------------------------------------------------------------------
 
 # Define NVM directory
 export NVM_DIR="$HOME/.nvm"
