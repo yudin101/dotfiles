@@ -123,7 +123,7 @@ elif [ "$AZURE" = "true" ]; then
   SESSION="azure"
   export TERM=xterm-256color
 else
-  SESSION="home"
+  SESSION="local"
 fi
 
 if [ -z "$TMUX" ]; then
@@ -133,15 +133,15 @@ if [ -z "$TMUX" ]; then
     tmux new-session -s "$SESSION" -n nvim -d
     tmux new-window -t "$SESSION" -n server
     tmux new-window -t "$SESSION" -n psql
-    if [ "$SESSION" = "home" ]; then
-      tmux new-window -t home -n mpg123 -c "$HOME/music"
+    if [ "$SESSION" = "local" ]; then
+      tmux new-window -t local -n mpg123 -c "$HOME/music"
     fi
     tmux new-window -t "$SESSION"
     tmux select-window -t "$SESSION:nvim"
     tmux attach -t "$SESSION"
   fi
 fi
-if [ ! "$SESSION" = "home" ]; then
+if [ ! "$SESSION" = "local" ]; then
   return
 fi
 
