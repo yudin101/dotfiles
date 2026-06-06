@@ -150,33 +150,37 @@ fi
 # ---------------------------------------------------------------------------
 # Load Git prompt support if available
 if [ -f /usr/lib/git-core/git-sh-prompt ]; then
-    . /usr/lib/git-core/git-sh-prompt
+  . /usr/lib/git-core/git-sh-prompt
 elif [ -f /usr/share/git-core/git-sh-prompt ]; then
-    . /usr/share/git-core/git-sh-prompt
+  . /usr/share/git-core/git-sh-prompt
 fi
 
 # Helper function to dynamically color the Git prompt based on status
 get_git_prompt_color() {
-    # Capture the raw git branch and status symbols
-    local git_info
-    git_info=$(__git_ps1 "%s" 2>/dev/null)
-    
-    # If not in a git repo, return empty
-    if [ -z "$git_info" ]; then
-        return
-    fi
+  # Capture the raw git branch and status symbols
+  local git_info
+  git_info=$(__git_ps1 "%s" 2>/dev/null)
 
-    # Check for symbols and apply colors:
-    # *+ = Both (Dim Yellow) | + = Staged (Dim Cyan) | * = Unstaged (Dim Red) | Clean = (Dim Green)
-    if [[ "$git_info" == *\** && "$git_info" == *+* ]]; then
-        echo -e " \e[0;33m($git_info)\e[0m" # Dim Yellow
-    elif [[ "$git_info" == *+* ]]; then
-        echo -e " \e[0;36m($git_info)\e[0m" # Dim Cyan
-    elif [[ "$git_info" == *\** ]]; then
-        echo -e " \e[0;31m($git_info)\e[0m" # Dim Red
-    else
-        echo -e " \e[0;32m($git_info)\e[0m" # Dim Green
-    fi
+  # If not in a git repo, return empty
+  if [ -z "$git_info" ]; then
+    return
+  fi
+
+  # Check for symbols and apply colors:
+  # *+ = Both (Dim Yellow) | + = Staged (Dim Cyan) | * = Unstaged (Dim Red) | Clean = (Dim Green)
+  # Define \001 and \002 as variables for cleaner code
+  local Open="\001"
+  local Close="\002"
+
+  if [[ "$git_info" == *\** && "$git_info" == *+* ]]; then
+    echo -e " ${Open}\e[0;33m${Close}($git_info)${Open}\e[0m${Close}"
+  elif [[ "$git_info" == *+* ]]; then
+    echo -e " ${Open}\e[0;36m${Close}($git_info)${Open}\e[0m${Close}"
+  elif [[ "$git_info" == *\** ]]; then
+    echo -e " ${Open}\e[0;31m${Close}($git_info)${Open}\e[0m${Close}"
+  else
+    echo -e " ${Open}\e[0;32m${Close}($git_info)${Open}\e[0m${Close}"
+  fi
 }
 
 # Enable showing dirty state (optional: shows * for unstaged, + for staged changes)
