@@ -20,6 +20,12 @@ return {
 		})
 
 		vim.lsp.config("ts_ls", {
+			init_options = {
+				preferences = {
+					includeCompletionsForModuleExports = false,
+					includeCompletionsWithInsertTextRedirect = false,
+				},
+			},
 			on_attach = function(client)
 				client.server_capabilities.semanticTokensProvider = nil
 			end,

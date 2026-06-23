@@ -11,20 +11,28 @@ return {
 
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
+			providers = {
+				lsp = { max_items = 15 },
+			},
 		},
 
 		cmdline = {
 			completion = {
-				menu = { auto_show = true },
+				menu = {
+					auto_show = true,
+				},
 			},
 		},
 
 		completion = {
 			documentation = {
-				auto_show = true,
+				auto_show = false,
 				window = { border = "rounded", winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder" },
 			},
-			menu = { border = "rounded", winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder" },
+			menu = {
+				border = "rounded",
+				winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder",
+			},
 		},
 
 		snippets = { preset = "default" },
