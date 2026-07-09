@@ -22,16 +22,16 @@ return {
 		require("telescope").setup({
 			defaults = {
 				file_ignore_patterns = {
-					"node_modules",
-					".git",
-					"build",
-					"dist",
-					"__pycache__",
+					"node_modules/",
+					".git/",
+					"build/",
+					"dist/",
+					"__pycache__/",
 					"%.png$",
 					"%.jpg$",
-					"myenv",
-					"venv",
-					".venv",
+					"myenv/",
+					"venv/",
+					".venv/",
 				},
 			},
 		})
