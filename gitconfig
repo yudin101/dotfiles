@@ -6,6 +6,7 @@
 	defaultBranch = main
 [core]
 	editor = vim
+	autocrlf = input
 [gpg]
 	format = ssh
 [commit]
