@@ -26,11 +26,13 @@ return {
 			c = { "clang-format" },
 			python = { "black" },
 			sh = { "shfmt" },
-			sql = { "sqlfluff" },
+			sql = { "pg_format" },
 		},
 		formatters = {
-			sqlfluff = {
-				args = { "format", "--dialect", "sqlite", "-" },
+			pg_format = {
+				command = "pg_format",
+				args = { "-u", "1", "-f", "1", "-s", "2", "-" },
+				stdin = true,
 			},
 		},
 	},
