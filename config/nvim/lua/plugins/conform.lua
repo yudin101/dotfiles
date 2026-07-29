@@ -31,7 +31,7 @@ return {
 		formatters = {
 			pg_format = {
 				command = "pg_format",
-				args = { "-u", "1", "-f", "1", "-s", "2", "-" },
+				args = { "-u", "1", "-f", "1", "-s", "2", "-B", "-" },
 				stdin = true,
 			},
 		},

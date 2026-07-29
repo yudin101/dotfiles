@@ -1,5 +1,7 @@
 vim.o.winborder = "rounded"
 
+vim.g.sql_type_default = "pgsql"
+
 require("config.lazy")
 
 vim.opt.number = true
