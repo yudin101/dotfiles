@@ -38,13 +38,23 @@ hc keybind XF86AudioPrev spawn playerctl previous
 hc keybind XF86AudioNext spawn playerctl next
 
 # Volume keys
+# With dedicated volume keys
 hc keybind XF86AudioRaiseVolume spawn ~/.config/herbstluftwm/volume.sh up 
 hc keybind XF86AudioLowerVolume spawn ~/.config/herbstluftwm/volume.sh down
 hc keybind XF86AudioMute spawn ~/.config/herbstluftwm/volume.sh mute
 
+# With Fn keys
+hc keybind F10 spawn ~/.config/herbstluftwm/volume.sh up
+hc keybind F9 spawn ~/.config/herbstluftwm/volume.sh down
+
 # Brightness keys
+# With dedicated brightness buttons
 hc keybind XF86MonBrightnessUp spawn brightnessctl s +10%
 hc keybind XF86MonBrightnessDown spawn brightnessctl s 10%-
+
+# With Fn keys
+hc keybind F2 spawn brightnessctl s +10%
+hc keybind F3 spawn brightnessctl s 10%-
 
 # basic movement in tiling and floating mode
 # focusing clients
