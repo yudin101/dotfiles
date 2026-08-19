@@ -14,6 +14,7 @@ vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 
 vim.opt.wrap = false
+vim.opt.colorcolumn = "80"
 -- vim.opt.cursorline = true
 
 vim.cmd.colorscheme("teide-darker")
