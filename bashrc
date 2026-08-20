@@ -132,6 +132,7 @@ if [ -z "$TMUX" ]; then
   else
     tmux new-session -s "$SESSION" -n nvim -d
     tmux new-window -t "$SESSION" -n server
+    tmux split-window -t "$SESSION:server" -h
     tmux new-window -t "$SESSION" -n psql
     if [ "$SESSION" = "local" ]; then
       tmux new-window -t local -n mpg123 -c "$HOME/music"
