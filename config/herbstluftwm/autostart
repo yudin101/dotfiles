@@ -53,8 +53,8 @@ hc keybind XF86MonBrightnessUp spawn brightnessctl s +10%
 hc keybind XF86MonBrightnessDown spawn brightnessctl s 10%-
 
 # With Fn keys
-hc keybind F2 spawn brightnessctl s +10%
-hc keybind F3 spawn brightnessctl s 10%-
+hc keybind F3 spawn brightnessctl s +10%
+hc keybind F2 spawn brightnessctl s 10%-
 
 # basic movement in tiling and floating mode
 # focusing clients
