@@ -199,7 +199,7 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 
 # Update PS1 to include the branch name in green
-export PS1='\[\e[1;32m\]\u@\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]$(get_git_prompt_color)\$ '
+export PS1='\[\e[1;34m\]\w\[\e[0m\]$(get_git_prompt_color)\$ '
 # ---------------------------------------------------------------------------
 
 # Define NVM directory
