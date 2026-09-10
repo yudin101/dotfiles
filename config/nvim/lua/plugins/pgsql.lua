@@ -1,7 +1,7 @@
 return {
-	{
-		"lifepillar/pgsql.vim",
-		lazy = true,
-		ft = { "sql", "pgsql" }, -- Load only for SQL/PLpgSQL files
-	},
+  {
+    "lifepillar/pgsql.vim",
+    lazy = true,
+    ft = { "sql", "pgsql" }, -- Load only for SQL/PLpgSQL files
+  },
 }
