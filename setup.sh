@@ -13,12 +13,14 @@ rm -rf \
   "$HOME/.config/mpv" \
   "$HOME/.config/pipewire" \
   "$HOME/.config/picom" \
+  "$HOME/.config/stylua" \
   "$HOME/.vimrc" \
   "$HOME/.bashrc" \
   "$HOME/.bash_aliases" \
   "$HOME/.gitconfig" \
   "$HOME/.tmux.conf" \
-  "$HOME/.xinitrc"
+  "$HOME/.xinitrc" \
+  "$HOME/.oxfmtrc.json"
 
 # Installing Neovim
 # Tarball for CODESPACES cuz no FUSE
@@ -49,6 +51,8 @@ ln -sf $DOTFILES/gitconfig $HOME/.gitconfig
 ln -sf $DOTFILES/tmux.conf $HOME/.tmux.conf
 ln -sf $DOTFILES/vimrc $HOME/.vimrc
 ln -sf $DOTFILES/config/nvim $HOME/.config/nvim
+ln -sf $DOTFILES/oxfmtrc.json $HOME/.oxfmtrc.json
+ln -sf $DOTFILES/config/stylua $HOME/.config/stylua
 
 if [[ ! "$CODESPACES" = "true" || ! "$AZURE" = "true" ]]; then
   ln -sf $DOTFILES/xinitrc $HOME/.xinitrc
