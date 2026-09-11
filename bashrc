@@ -202,32 +202,8 @@ export GIT_PS1_SHOWUNTRACKEDFILES=1
 export PS1='\[\e[1;34m\]\w\[\e[0m\]$(get_git_prompt_color)\$ '
 # ---------------------------------------------------------------------------
 
-# Define NVM directory
-export NVM_DIR="$HOME/.nvm"
-
-# Lazy load function
-nvm_lazy_load() {
-  unset -f nvm node npm npx
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-}
-
-# Create "placeholders" that trigger the real NVM load
-nvm() {
-  nvm_lazy_load
-  nvm "$@"
-}
-node() {
-  nvm_lazy_load
-  node "$@"
-}
-npm() {
-  nvm_lazy_load
-  npm "$@"
-}
-npx() {
-  nvm_lazy_load
-  npx "$@"
-}
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
 export DISPLAY=:0
