@@ -11,18 +11,27 @@ return {
       capabilities = capabilities,
     })
 
-    vim.lsp.config("ts_ls", {
-      init_options = {
-        preferences = {
-          includeCompletionsForModuleExports = false,
-          includeCompletionsWithInsertTextRedirect = false,
-        },
-      },
+    -- vim.lsp.config("ts_ls", {
+    --   init_options = {
+    --     preferences = {
+    --       includeCompletionsForModuleExports = false,
+    --       includeCompletionsWithInsertTextRedirect = false,
+    --     },
+    --   },
+    --   on_attach = function(client)
+    --     client.server_capabilities.semanticTokensProvider = nil
+    --   end,
+    -- })
+
+    vim.lsp.config("tsc", {
+      cmd = { "bunx", "tsc", "--lsp", "--stdio" },
+      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+      root_markers = { "tsconfig.json", "package.json", ".git" },
       on_attach = function(client)
         client.server_capabilities.semanticTokensProvider = nil
       end,
     })
 
-    vim.lsp.enable({ "ts_ls", "cssls", "html", "clangd", "pyrefly" })
+    vim.lsp.enable({ "tsc", "cssls", "html", "clangd", "pyrefly" })
   end,
 }
