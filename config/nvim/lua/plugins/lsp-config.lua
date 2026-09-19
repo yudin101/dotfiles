@@ -4,19 +4,11 @@ return {
   config = function()
     local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-    -- Pyright setup without restricting filetypes
-    vim.lsp.config("pyright", {
+    vim.lsp.config("pyrefly", {
+      cmd = { "pyrefly", "lsp" },
+      filetypes = { "python" },
+      root_markers = { "pyrefly.toml", "pyproject.toml", "setup.py", ".git" },
       capabilities = capabilities,
-      settings = {
-        python = {
-          analysis = {
-            typeCheckingMode = "basic",
-            useLibraryCodeForTypes = true,
-            autoSearchPaths = true,
-            diagnosticMode = "workspace",
-          },
-        },
-      },
     })
 
     vim.lsp.config("ts_ls", {
@@ -31,6 +23,6 @@ return {
       end,
     })
 
-    vim.lsp.enable({ "ts_ls", "cssls", "html", "clangd", "pyright" })
+    vim.lsp.enable({ "ts_ls", "cssls", "html", "clangd", "pyrefly" })
   end,
 }
