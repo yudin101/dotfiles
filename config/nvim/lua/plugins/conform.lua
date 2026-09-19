@@ -6,7 +6,7 @@ return {
     {
       "<leader>gf",
       function()
-        require("conform").format({ async = true, lsp_fallback = true })
+        require("conform").format({ async = true, lsp_format = "fallback" })
       end,
       mode = "",
       desc = "Format buffer",
@@ -25,7 +25,7 @@ return {
       css = { "oxfmt" },
       cpp = { "clang-format" },
       c = { "clang-format" },
-      python = { "black" },
+      python = { "ruff_format", "ruff_organize_imports" },
       sh = { "shfmt" },
       sql = { "pg_format" },
     },
