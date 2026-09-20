@@ -24,9 +24,26 @@ return {
     -- })
 
     vim.lsp.config("tsc", {
+      capabilities = capabilities,
       cmd = { "bunx", "tsc", "--lsp", "--stdio" },
       filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
       root_markers = { "tsconfig.json", "package.json", ".git" },
+      settings = {
+        typescript = {
+          suggest = { autoImports = false },
+          preferences = {
+            includePackageJsonAutoImports = "off",
+            autoImportFileExcludePatterns = { "**/node_modules/**" },
+          },
+        },
+        javascript = {
+          suggest = { autoImports = false },
+          preferences = {
+            includePackageJsonAutoImports = "off",
+            autoImportFileExcludePatterns = { "**/node_modules/**" },
+          },
+        },
+      },
       on_attach = function(client)
         client.server_capabilities.semanticTokensProvider = nil
       end,
