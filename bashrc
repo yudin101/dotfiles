@@ -213,5 +213,6 @@ export PS1='\[\e[1;34m\]\w\[\e[0m\]$(get_git_prompt_color)\$ '
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 
 export DISPLAY=:0

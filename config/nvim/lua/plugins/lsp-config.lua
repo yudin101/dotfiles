@@ -51,6 +51,12 @@ return {
       end,
     })
 
-    vim.lsp.enable({ "tsc", "cssls", "html", "clangd", "pyrefly" })
+    vim.lsp.config("gopls", {
+      cmd = { "gopls" },
+      filetypes = { "go", "gomod", "gowork", "gotmpl" },
+      root_markers = { "go.work", "go.mod", ".git" },
+    })
+
+    vim.lsp.enable({ "tsc", "cssls", "html", "clangd", "pyrefly", "gopls" })
   end,
 }
