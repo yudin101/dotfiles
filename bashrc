@@ -126,7 +126,7 @@ else
   SESSION="local"
 fi
 
-if [ -z "$TMUX" ]; then
+if [[ -z "$TMUX" && "$TERM" != "linux" ]]; then
   if tmux ls >/dev/null 2>&1; then
     tmux attach
   else
@@ -174,19 +174,27 @@ get_git_prompt_color() {
   local Close="\002"
 
   local has_staged=false has_unstaged=false has_untracked=false
-   [[ "$git_info" == *+* ]] && has_staged=true
-   [[ "$git_info" == *\** ]] && has_unstaged=true
-   [[ "$git_info" == *%* ]] && has_untracked=true
+  [[ "$git_info" == *+* ]] && has_staged=true
+  [[ "$git_info" == *\** ]] && has_unstaged=true
+  [[ "$git_info" == *%* ]] && has_untracked=true
 
   local color
-  if   $has_untracked && $has_staged && $has_unstaged; then color="\e[0;93m"  # bright yellow
-  elif $has_untracked && $has_staged;                  then color="\e[0;96m"  # bright cyan
-  elif $has_untracked && $has_unstaged;                then color="\e[0;91m"  # bright red
-  elif $has_staged && $has_unstaged;                   then color="\e[0;33m"  # yellow
-  elif $has_staged;                                    then color="\e[0;36m"  # cyan
-  elif $has_unstaged;                                  then color="\e[0;31m"  # red
-  elif $has_untracked;                                 then color="\e[0;35m"  # magenta
-  else                                                       color="\e[0;32m"  # green (clean)
+  if $has_untracked && $has_staged && $has_unstaged; then
+    color="\e[0;93m" # bright yellow
+  elif $has_untracked && $has_staged; then
+    color="\e[0;96m" # bright cyan
+  elif $has_untracked && $has_unstaged; then
+    color="\e[0;91m" # bright red
+  elif $has_staged && $has_unstaged; then
+    color="\e[0;33m" # yellow
+  elif $has_staged; then
+    color="\e[0;36m" # cyan
+  elif $has_unstaged; then
+    color="\e[0;31m" # red
+  elif $has_untracked; then
+    color="\e[0;35m" # magenta
+  else
+    color="\e[0;32m" # green (clean)
   fi
 
   echo -e " ${Open}${color}${Close}($git_info)${Open}\e[0m${Close}"
