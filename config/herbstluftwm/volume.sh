@@ -2,11 +2,11 @@
 
 case $1 in
     down)
-        amixer -q set Master 10%- unmute
+        amixer -q set Master 5%- unmute
         herbstclient emit_hook volume
         ;;
     up)
-        amixer -q set Master 10%+ unmute
+        amixer -q set Master 5%+ unmute
         herbstclient emit_hook volume
         ;;
     mute)
