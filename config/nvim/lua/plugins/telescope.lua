@@ -7,15 +7,15 @@ return {
   config = function()
     local builtin = require("telescope.builtin")
     vim.keymap.set("n", "<C-p>", function()
-      builtin.find_files({ previewer = false })
+      builtin.find_files()
     end, {})
 
     vim.keymap.set("n", "<C-l>", function()
-      builtin.buffers({ previewer = false })
+      builtin.buffers()
     end, {})
 
     vim.keymap.set("n", "<C-k>", function()
-      builtin.live_grep({ previewer = false })
+      builtin.live_grep()
     end, {})
 
     require("telescope").setup({
