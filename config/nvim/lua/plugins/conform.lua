@@ -28,6 +28,7 @@ return {
       python = { "ruff_format", "ruff_organize_imports" },
       sh = { "shfmt" },
       sql = { "pg_format" },
+      tex = { "tex-fmt" },
     },
     formatters = {
       pg_format = {
