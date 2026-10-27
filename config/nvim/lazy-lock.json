@@ -11,6 +11,5 @@
   "nvim-treesitter": { "branch": "main", "commit": "41416e81a6c7f4af4984395bfe0cd8d174e70976" },
   "pgsql.vim": { "branch": "master", "commit": "16584d7a1f2c528560a646a63625c6731a72c8c7" },
   "plenary.nvim": { "branch": "master", "commit": "74b06c6c75e4eeb3108ec01852001636d85a932b" },
-  "teide.nvim": { "branch": "main", "commit": "95041d1d78e786bd88be64bca3e1771f7b6236df" },
   "telescope.nvim": { "branch": "master", "commit": "40aedd8a68c78a656a10a8d62d80c54af59420fb" }
 }
