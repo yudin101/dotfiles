@@ -4,6 +4,7 @@ set -e
 DOTFILES=$HOME/dotfiles
 
 mkdir -p "$HOME/.config"
+mkdir -p "$HOME/.local/bin"
 
 # Clear previous configs if they exist
 rm -rf \
@@ -20,7 +21,9 @@ rm -rf \
   "$HOME/.gitconfig" \
   "$HOME/.tmux.conf" \
   "$HOME/.xinitrc" \
-  "$HOME/.oxfmtrc.json"
+  "$HOME/.oxfmtrc.json" \
+  "$HOME/.local/bin/fixkey.sh" \
+  "$HOME/.local/bin/keyboard-handler.sh"
 
 # Installing Neovim
 # Tarball for CODESPACES cuz no FUSE
@@ -53,6 +56,8 @@ ln -sf $DOTFILES/vimrc $HOME/.vimrc
 ln -sf $DOTFILES/config/nvim $HOME/.config/nvim
 ln -sf $DOTFILES/oxfmtrc.json $HOME/.oxfmtrc.json
 ln -sf $DOTFILES/config/stylua $HOME/.config/stylua
+ln -sf $DOTFILES/local/bin/fixkeys.sh $HOME/.local/bin/fixkeys.sh
+ln -sf $DOTFILES/local/bin/keyboard-handler.sh $HOME/.local/bin/keyboard-handler.sh
 
 if [[ ! "$CODESPACES" = "true" || ! "$AZURE" = "true" ]]; then
   ln -sf $DOTFILES/xinitrc $HOME/.xinitrc

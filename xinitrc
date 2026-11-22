@@ -3,9 +3,7 @@
 # enable picom
 picom --daemon
 
-# remap alt_gr to super
-xmodmap -e "keycode 108 = Super_R"
-xmodmap -e "remove mod1 = Super_R"
-xmodmap -e "add mod4 = Super_R"
+~/.local/bin/fixkeys.sh
+inputplug -c ~/.local/bin/keyboard-handler.sh
 
 exec herbstluftwm
