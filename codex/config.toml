@@ -1,0 +1,10 @@
+plan_mode_reasoning_effort = "max"
+model = "gpt-6-luna"
+model_reasoning_effort = "max"
+
+[tui]
+mouse_scroll_speed=3.0
+screen_reader_detection_done = true
+theme = "gruvbox-dark"
+status_line = ["model-with-reasoning", "current-dir", "thread-name", "git-branch", "five-hour-limit"]
+status_line_use_colors = true

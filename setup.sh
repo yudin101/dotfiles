@@ -4,6 +4,7 @@ set -e
 DOTFILES=$HOME/dotfiles
 
 mkdir -p "$HOME/.config"
+mkdir -p "$HOME/.codex"
 mkdir -p "$HOME/.local/bin"
 
 # Clear previous configs if they exist
@@ -15,6 +16,7 @@ rm -rf \
   "$HOME/.config/pipewire" \
   "$HOME/.config/picom" \
   "$HOME/.config/stylua" \
+  "$HOME/.codex/config.toml" \
   "$HOME/.vimrc" \
   "$HOME/.bashrc" \
   "$HOME/.bash_aliases" \
@@ -53,6 +55,7 @@ ln -sf $DOTFILES/bash_aliases $HOME/.bash_aliases
 ln -sf $DOTFILES/gitconfig $HOME/.gitconfig
 ln -sf $DOTFILES/tmux.conf $HOME/.tmux.conf
 ln -sf $DOTFILES/vimrc $HOME/.vimrc
+ln -sf $DOTFILES/codex/config.toml $HOME/.codex/config.toml
 ln -sf $DOTFILES/config/nvim $HOME/.config/nvim
 ln -sf $DOTFILES/oxfmtrc.json $HOME/.oxfmtrc.json
 ln -sf $DOTFILES/config/stylua $HOME/.config/stylua
