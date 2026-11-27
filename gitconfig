@@ -13,6 +13,5 @@
 	gpgsign = true
 [gpg "ssh"]
 	allowedSignersFile = ~/.ssh/allowed_signers
-
 [status]
   short = true
